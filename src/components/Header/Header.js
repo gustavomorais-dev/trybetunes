@@ -1,5 +1,5 @@
 import React from 'react';
-import Loading from '../../pages/Loading';
+import Loading from '../Loading';
 import { getUser } from '../../services/userAPI';
 import Navigation from './Navigation';
 import UserName from './UserName';

@@ -1,7 +1,10 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
+import searchAlbumsAPI from '../../services/searchAlbumsAPI';
+import Loading from '../../components/Loading';
 import SearchButton from './SearchButton';
 import SearchInput from './SearchInput';
+import AlbumsList from './AlbumsList';
 
 class Search extends React.Component {
   constructor() {
@@ -9,6 +12,10 @@ class Search extends React.Component {
 
     this.state = {
       searchInput: '',
+      loading: false,
+      albumsList: [],
+      noAlbumsFound: false,
+      searching: false,
     };
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -16,19 +23,25 @@ class Search extends React.Component {
   }
 
   handleSearch() {
-    console.log('search');
-    // const { searchInput } = this.state;
-    // this.setState({
-    //   loading: true,
-    // });
-    // createUser({ name: nameInput }).then(() => {
-    //   this.setState({
-    //     loading: false,
-    //     logged: true,
-    //   });
-    // }).catch((error) => {
-    //   console.log(error);
-    // });
+    // Adquire o valor do input
+    const { searchInput } = this.state;
+    // Limpa o valor do input e inicia o loading
+    this.setState({
+      searchInput: '',
+      loading: true,
+    });
+    // Faz a requisição
+    searchAlbumsAPI(searchInput).then((response) => {
+      // Loaded
+      this.setState({
+        loading: false,
+        albumsList: response,
+        noAlbumsFound: (response.length <= 0),
+        searching: true,
+      });
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   onInputChange({ target }) {
@@ -39,9 +52,18 @@ class Search extends React.Component {
   }
 
   render() {
-    const { searchInput } = this.state;
+    const { searchInput, loading, albumsList, noAlbumsFound, searching } = this.state;
     const minSearchLength = 2;
     const isSearchInvalid = searchInput.length < minSearchLength;
+
+    let content;
+    if (loading) {
+      content = <Loading />;
+    } else if (noAlbumsFound && searching) {
+      content = <span>Nenhum álbum foi encontrado</span>;
+    } else if (albumsList.length > 0) {
+      content = <AlbumsList albumsList={ albumsList } />;
+    }
 
     return (
       <div data-testid="page-search">
@@ -56,6 +78,8 @@ class Search extends React.Component {
             onClick={ this.handleSearch }
           />
         </form>
+
+        { content }
       </div>
     );
   }
