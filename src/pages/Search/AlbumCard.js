@@ -12,8 +12,8 @@ class AlbumCard extends React.Component {
       >
         <div>
           <img src={ artworkUrl100 } alt={ collectionName } />
-          <span>{ collectionName }</span>
-          <span>{ artistName }</span>
+          <span data-testid="album-name">{ collectionName }</span>
+          <span data-testid="artist-name">{ artistName }</span>
         </div>
       </Link>
     );

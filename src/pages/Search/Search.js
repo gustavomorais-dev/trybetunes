@@ -42,7 +42,7 @@ class Search extends React.Component {
         query: searchInput,
       });
     }).catch((error) => {
-      console.log('EERO', error);
+      console.log(error);
     });
   }
 
