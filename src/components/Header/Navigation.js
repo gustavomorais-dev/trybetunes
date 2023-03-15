@@ -10,7 +10,7 @@ class Navigation extends React.Component {
             to="/search"
             data-testid="link-to-search"
           >
-            Search
+            Pesquisa
           </Link>
         </li>
         <li>
@@ -18,7 +18,7 @@ class Navigation extends React.Component {
             to="/favorites"
             data-testid="link-to-favorites"
           >
-            Favorites
+            Favoritas
           </Link>
         </li>
         <li>
@@ -26,7 +26,7 @@ class Navigation extends React.Component {
             to="/profile"
             data-testid="link-to-profile"
           >
-            Profile
+            Perfil
           </Link>
         </li>
       </ul>

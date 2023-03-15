@@ -6,7 +6,7 @@ import Login from './pages/Login/Login';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
-import Search from './pages/Search';
+import Search from './pages/Search/Search';
 
 class App extends React.Component {
   render() {
