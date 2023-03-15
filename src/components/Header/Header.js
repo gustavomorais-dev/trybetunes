@@ -1,6 +1,8 @@
 import React from 'react';
-import Loading from '../pages/Loading';
-import { getUser } from '../services/userAPI';
+import Loading from '../../pages/Loading';
+import { getUser } from '../../services/userAPI';
+import Navigation from './Navigation';
+import UserName from './UserName';
 
 class Header extends React.Component {
   constructor() {
@@ -33,13 +35,14 @@ class Header extends React.Component {
     const { name, loading } = this.state;
     return (
       <header data-testid="header-component">
+        <Navigation />
+
         {loading ? (
           <Loading />
         ) : (
-          <span data-testid="header-user-name">
-            { name }
-          </span>
+          <UserName userName={ name } />
         )}
+
       </header>
     );
   }
