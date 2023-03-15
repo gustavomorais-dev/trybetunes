@@ -16,6 +16,7 @@ class Search extends React.Component {
       albumsList: [],
       noAlbumsFound: false,
       searching: false,
+      query: '',
     };
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -30,7 +31,7 @@ class Search extends React.Component {
       searchInput: '',
       loading: true,
     });
-    // Faz a requisição
+
     searchAlbumsAPI(searchInput).then((response) => {
       // Loaded
       this.setState({
@@ -38,9 +39,10 @@ class Search extends React.Component {
         albumsList: response,
         noAlbumsFound: (response.length <= 0),
         searching: true,
+        query: searchInput,
       });
     }).catch((error) => {
-      console.log(error);
+      console.log('EERO', error);
     });
   }
 
@@ -52,7 +54,14 @@ class Search extends React.Component {
   }
 
   render() {
-    const { searchInput, loading, albumsList, noAlbumsFound, searching } = this.state;
+    const {
+      searchInput,
+      loading,
+      albumsList,
+      noAlbumsFound,
+      searching,
+      query,
+    } = this.state;
     const minSearchLength = 2;
     const isSearchInvalid = searchInput.length < minSearchLength;
 
@@ -62,23 +71,29 @@ class Search extends React.Component {
     } else if (noAlbumsFound && searching) {
       content = <span>Nenhum álbum foi encontrado</span>;
     } else if (albumsList.length > 0) {
-      content = <AlbumsList albumsList={ albumsList } />;
+      content = (
+        <>
+          <p>{`Resultado de álbuns de: ${query}`}</p>
+          <AlbumsList albumsList={ albumsList } />
+        </>
+      );
     }
 
     return (
       <div data-testid="page-search">
         <Header />
-        <form>
-          <SearchInput
-            value={ searchInput }
-            onChange={ this.onInputChange }
-          />
-          <SearchButton
-            disabled={ isSearchInvalid }
-            onClick={ this.handleSearch }
-          />
-        </form>
-
+        {!loading && (
+          <form>
+            <SearchInput
+              value={ searchInput }
+              onChange={ this.onInputChange }
+            />
+            <SearchButton
+              disabled={ isSearchInvalid }
+              onClick={ this.handleSearch }
+            />
+          </form>
+        )}
         { content }
       </div>
     );

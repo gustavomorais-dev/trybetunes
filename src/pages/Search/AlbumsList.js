@@ -5,11 +5,9 @@ import AlbumCard from './AlbumCard';
 class AlbumsList extends React.Component {
   render() {
     const { albumsList } = this.props;
+
     return (
       <div>
-        <span>
-          {`Resultado de álbuns de: ${albumsList[0].artistName}`}
-        </span>
         { albumsList.length > 0 && (
           <ul>
             {
