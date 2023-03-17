@@ -37,6 +37,7 @@ class MusicList extends React.Component {
 
   render() {
     const { loading, musicList } = this.state;
+    const { favorites } = this.props;
     let content;
     if (loading) {
       content = <Loading />;
@@ -47,10 +48,10 @@ class MusicList extends React.Component {
             index !== 0 && (
               <li key={ index }>
                 <MusicCard
-                  trackName={ music.trackName }
-                  previewUrl={ music.previewUrl }
-                  trackId={ music.trackId }
                   music={ music }
+                  isFavorite={
+                    favorites.some((favorite) => favorite.trackId === music.trackId)
+                  }
                 />
               </li>
             )
@@ -70,6 +71,7 @@ class MusicList extends React.Component {
 MusicList.propTypes = {
   id: PropTypes.string.isRequired,
   configAlbumCard: PropTypes.func.isRequired,
+  favorites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 export default MusicList;
