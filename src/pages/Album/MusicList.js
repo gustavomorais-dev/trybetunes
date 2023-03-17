@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getMusics from '../../services/musicsAPI';
 import Loading from '../../components/Loading';
-import MusicCard from './MusicCard';
+import MusicCard from './MusicCard/MusicCard';
 
 class MusicList extends React.Component {
   constructor() {
@@ -49,6 +49,8 @@ class MusicList extends React.Component {
                 <MusicCard
                   trackName={ music.trackName }
                   previewUrl={ music.previewUrl }
+                  trackId={ music.trackId }
+                  music={ music }
                 />
               </li>
             )
@@ -57,7 +59,7 @@ class MusicList extends React.Component {
       );
 
       return (
-        <div data-testid="page-album">
+        <div>
           {content}
         </div>
       );
