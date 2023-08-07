@@ -5,6 +5,7 @@ import AlbumCard from '../Search/AlbumCard';
 import MusicList from './MusicList';
 import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
 import Loading from '../../components/Loading';
+import './Album.css';
 
 class Album extends React.Component {
   constructor() {
@@ -59,27 +60,29 @@ class Album extends React.Component {
     } = this.state;
 
     return (
-      <div data-testid="page-album">
+      <div data-testid="page-album" className='main'>
         <Header />
-        {loading ? (
-          <Loading />
-        ) : (
-          <>
-            {artistName.length > 0 && (
-              <AlbumCard
-                artistName={ artistName }
-                collectionName={ collectionName }
-                collectionId={ collectionId }
-                artworkUrl100={ artworkUrl100 }
+        <div className="album-container">
+          {loading ? (
+            <Loading />
+          ) : (
+            <div className="music-list-container">
+              {artistName.length > 0 && (
+                <AlbumCard
+                  artistName={ artistName }
+                  collectionName={ collectionName }
+                  collectionId={ collectionId }
+                  artworkUrl100={ artworkUrl100 }
+                />
+              )}
+              <MusicList
+                id={ id }
+                configAlbumCard={ this.configAlbumCard }
+                favorites={ favorites }
               />
-            )}
-            <MusicList
-              id={ id }
-              configAlbumCard={ this.configAlbumCard }
-              favorites={ favorites }
-            />
-          </>
-        )}
+            </div>
+          )}
+        </div>
       </div>
     );
   }

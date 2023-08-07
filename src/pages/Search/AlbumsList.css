@@ -1,0 +1,14 @@
+#albums-list-container {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#albums-list-container ul {
+    list-style: none;
+    padding: 0%;
+}
+
+#albums-list-container ul li {
+    width: 100%;
+}

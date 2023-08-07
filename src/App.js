@@ -1,18 +1,21 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Album from './pages/Album/Album';
-import Favorites from './pages/Favorites';
+import Favorites from './pages/Favorites/Favorites';
 import Login from './pages/Login/Login';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import Search from './pages/Search/Search';
+import './App.css'
 
 class App extends React.Component {
   render() {
     return (
       <>
-        <p>TrybeTunes</p>
+        <header>
+          <h1 id="youtune-title">You<span>Tune</span></h1>
+        </header>
         <BrowserRouter>
           <Switch>
             <Route path="/search" component={ Search } />

@@ -5,6 +5,7 @@ import Loading from '../../components/Loading';
 import SearchButton from './SearchButton';
 import SearchInput from './SearchInput';
 import AlbumsList from './AlbumsList';
+import './Search.css';
 
 class Search extends React.Component {
   constructor() {
@@ -80,21 +81,24 @@ class Search extends React.Component {
     }
 
     return (
-      <div data-testid="page-search">
+      <div data-testid="page-search" className="main">
         <Header />
-        {!loading && (
-          <form>
-            <SearchInput
-              value={ searchInput }
-              onChange={ this.onInputChange }
-            />
-            <SearchButton
-              disabled={ isSearchInvalid }
-              onClick={ this.handleSearch }
-            />
-          </form>
-        )}
-        { content }
+        <div className="search-container">
+          <h3>Busque por um artista:</h3>
+          {!loading && (
+            <form>
+              <SearchInput
+                value={ searchInput }
+                onChange={ this.onInputChange }
+              />
+              <SearchButton
+                disabled={ isSearchInvalid }
+                onClick={ this.handleSearch }
+              />
+            </form>
+          )}
+          { content }
+        </div>
       </div>
     );
   }

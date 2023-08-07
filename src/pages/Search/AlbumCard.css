@@ -1,0 +1,44 @@
+.album-card-container {
+    width: 100%;
+    text-decoration: none;
+}
+
+.album-card-container a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.album-card-container a:hover,
+.album-card-container a:visited {
+    color: inherit;
+}
+
+.album-card-content {
+    background-color: #020c13;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid black;
+    max-width: 100%; 
+    margin: 1vw;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
+
+.album-card-content img {
+    margin-right: 5vw;
+    width: 100px;
+    height: 100px;
+}
+
+.album-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.album-name {
+    color: #fff;
+    font-size: 4vh;
+    font-weight: bold;
+}

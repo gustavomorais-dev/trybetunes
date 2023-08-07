@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200&display=swap');
+
+
+body {
+    color: #fff;
+    background-image: url('./images/music-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2vh;
+}
+
+header {
+    margin: 0;
+    text-align: center;
+}
+
+#youtune-title {
+    font-weight: bold;
+    font-size: 5vh;
+}
+
+#youtune-title span {
+    color: #00ebff;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

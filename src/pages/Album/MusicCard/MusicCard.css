@@ -1,0 +1,39 @@
+.music-card-container {
+  background-color: #020c13;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+  max-width: 100%;
+  margin: 1vw;
+  display: flex;
+  padding: 20px;
+  align-items: center;
+}
+
+.music-card-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 2vw;
+}
+
+.music-card-content audio {
+  width: 100%;
+}
+
+.music-name {
+  color: #fff;
+  font-size: 4vh;
+  font-weight: bold;
+  padding-left: 3vw;
+}
+
+audio::-webkit-media-controls-enclosure {
+    background-color: #020c13;
+}
+
+audio,
+audio::-webkit-media-controls-panel,
+audio::-webkit-media-controls-enclosure {
+  filter: invert(1); /* Inverte as cores de todos os elementos internos */
+}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import getMusics from '../../services/musicsAPI';
 import Loading from '../../components/Loading';
 import MusicCard from './MusicCard/MusicCard';
+import './MusicList.css';
 
 class MusicList extends React.Component {
   constructor() {
@@ -43,7 +44,7 @@ class MusicList extends React.Component {
       content = <Loading />;
     } else {
       content = (
-        <ul>
+        <ul className="music-list">
           {musicList.map((music, index) => (
             index !== 0 && (
               <li key={ index }>

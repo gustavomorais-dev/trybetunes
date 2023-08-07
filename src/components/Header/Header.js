@@ -3,6 +3,7 @@ import Loading from '../Loading';
 import { getUser } from '../../services/userAPI';
 import Navigation from './Navigation';
 import UserName from './UserName';
+import './Header.css';
 
 class Header extends React.Component {
   constructor() {
@@ -34,13 +35,13 @@ class Header extends React.Component {
   render() {
     const { name, loading } = this.state;
     return (
-      <header data-testid="header-component">
+      <header data-testid="header-component" id="header-nav">
         <Navigation />
 
         {loading ? (
           <Loading />
         ) : (
-          <UserName userName={ name } />
+          <UserName userName={ ` (${name})` } />
         )}
 
       </header>

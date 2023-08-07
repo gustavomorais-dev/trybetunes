@@ -4,6 +4,7 @@ import NameInput from './NameInput';
 import SubmitButton from './SubmitButton';
 import { createUser } from '../../services/userAPI';
 import Loading from '../../components/Loading';
+import './Login.css'
 
 class Login extends React.Component {
   constructor() {
@@ -50,20 +51,25 @@ class Login extends React.Component {
 
     return (
       <div data-testid="page-login">
-        {loading ? (
-          <Loading />
-        ) : (
-          <form>
-            <NameInput
-              value={ nameInput }
-              onChange={ this.onInputChange }
-            />
-            <SubmitButton
-              disabled={ isNameInvalid }
-              onClick={ this.handleCreateUser }
-            />
-          </form>
-        )}
+        <div id="login-container">
+          {loading ? (
+            <Loading />
+          ) : (
+            <div id="login-content">
+              <h3>Digite seu nome para começar!</h3>
+              <form>
+                <NameInput
+                  value={ nameInput }
+                  onChange={ this.onInputChange }
+                />
+                <SubmitButton
+                  disabled={ isNameInvalid }
+                  onClick={ this.handleCreateUser }
+                />
+              </form>
+            </div>
+          )}
+        </div>
       </div>
     );
   }

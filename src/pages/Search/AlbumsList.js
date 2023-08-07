@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AlbumCard from './AlbumCard';
+import './AlbumsList.css';
 
 class AlbumsList extends React.Component {
   render() {
     const { albumsList } = this.props;
 
     return (
-      <div>
+      <div id="albums-list-container">
         { albumsList.length > 0 && (
           <ul>
             {

@@ -1,0 +1,25 @@
+.profile-container {
+    background-color: #031a27;
+    width: 90vw;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid black;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3vh;
+    color: #00ebff;
+    min-height: 100px;
+}
+
+.profile-container img {
+    width: 10vw;
+    padding-top: 20px;
+}
+
+.user-details {
+    text-align: center;
+}
