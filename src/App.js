@@ -7,14 +7,17 @@ import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import Search from './pages/Search/Search';
-import './App.css'
+import './App.css';
 
 class App extends React.Component {
   render() {
     return (
       <>
         <header>
-          <h1 id="youtune-title">You<span>Tune</span></h1>
+          <h1 id="youtune-title">
+            You
+            <span>Tune</span>
+          </h1>
         </header>
         <BrowserRouter>
           <Switch>

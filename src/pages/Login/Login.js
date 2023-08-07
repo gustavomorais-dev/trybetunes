@@ -4,7 +4,7 @@ import NameInput from './NameInput';
 import SubmitButton from './SubmitButton';
 import { createUser } from '../../services/userAPI';
 import Loading from '../../components/Loading';
-import './Login.css'
+import './Login.css';
 
 class Login extends React.Component {
   constructor() {

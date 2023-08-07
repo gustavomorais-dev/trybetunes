@@ -4,16 +4,7 @@ import MusicCard from '../Album/MusicCard/MusicCard';
 import './FavoritesList.css';
 
 class FavoritesList extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      loading: true,
-      musicList: [],
-    };
-  }
-
   render() {
-    const { childState } = this.state;
     const { favorites, fetchFavorites } = this.props;
 
     let content;
@@ -23,15 +14,13 @@ class FavoritesList extends React.Component {
         <li key={ index }>
           <MusicCard
             music={ music }
-            isFavorite={ true }
-            updateDad={ this.handleChildStateChange }
-            childState={ childState }
+            isFavorite
             fetchFavorites={ fetchFavorites }
           />
         </li>
-      ))
+      ));
     } else {
-      content = <p>Você ainda não adicionou músicas favoritas.</p>
+      content = <p>Você ainda não adicionou músicas favoritas.</p>;
     }
 
     return (
@@ -46,6 +35,7 @@ class FavoritesList extends React.Component {
 
 FavoritesList.propTypes = {
   favorites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  fetchFavorites: PropTypes.func.isRequired,
 };
 
 export default FavoritesList;

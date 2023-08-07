@@ -9,23 +9,36 @@ class FavoriteCheckbox extends React.Component {
       <label>
         <input
           name="favoriteCheckbox"
-          data-testid={`checkbox-music-${trackId}`}
+          data-testid={ `checkbox-music-${trackId}` }
           type="checkbox"
-          checked={checked}
-          onChange={onChange}
-          style={{ display: 'none' }} 
+          checked={ checked }
+          onChange={ onChange }
+          style={ { display: 'none' } }
+          onKeyDown={ (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              onChange();
+            }
+          } }
         />
         <div
-          style={{
+          role="button"
+          tabIndex={ 0 }
+          style={ {
             display: 'inline-block',
             cursor: 'pointer',
             color: checked ? 'red' : 'white',
             fontSize: '5vh',
-          }}
-          onClick={onChange}
+          } }
+          onClick={ onChange }
+          onKeyDown={ (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              onChange();
+            }
+          } }
         >
           <FaHeart />
         </div>
+
       </label>
     );
   }

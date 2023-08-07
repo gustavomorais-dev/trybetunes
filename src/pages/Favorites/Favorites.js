@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header';
 import './Favorites.css';
 import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
 import FavoritesList from './FavoritesList';
+import Loading from '../../components/Loading';
 
 class Favorites extends React.Component {
   constructor() {
@@ -32,13 +33,20 @@ class Favorites extends React.Component {
   }
 
   render() {
-    const { favorites } = this.state;
+    const { favorites, loading } = this.state;
 
     return (
       <div data-testid="page-favorites" className="main">
         <Header />
         <div className="favorites-container">
-          <FavoritesList favorites={ favorites } fetchFavorites={ this.fetchFavorites }/>
+          { loading ? (
+            <Loading />
+          ) : (
+            <FavoritesList
+              favorites={ favorites }
+              fetchFavorites={ this.fetchFavorites }
+            />
+          )}
         </div>
       </div>
     );

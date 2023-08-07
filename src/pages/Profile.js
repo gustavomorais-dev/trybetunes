@@ -1,17 +1,17 @@
-import React from "react";
-import Header from "../components/Header/Header";
-import "./Profile.css";
-import userPic from "../images/user.png";
-import Loading from "../components/Loading";
-import UserName from "../components/Header/UserName";
-import { getUser } from "../services/userAPI";
-import { getFavoriteSongs } from "../services/favoriteSongsAPI";
+import React from 'react';
+import Header from '../components/Header/Header';
+import './Profile.css';
+import userPic from '../images/user.png';
+import Loading from '../components/Loading';
+import UserName from '../components/Header/UserName';
+import { getUser } from '../services/userAPI';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Profile extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: "",
+      name: '',
       loading: false,
       favorites: 0,
     };
@@ -52,13 +52,17 @@ class Profile extends React.Component {
       <div data-testid="page-profile" className="main">
         <Header />
         <div className="profile-container">
-          <img src={userPic} />
+          <img src={ userPic } alt="user" />
           {loading ? (
             <Loading />
           ) : (
             <div className="user-details">
-              <UserName userName={` (${name})`} />
-              <p>Músicas favoritas: { favorites }</p>
+              <UserName userName={ ` (${name})` } />
+              <p>
+                Músicas favoritas:
+                {' '}
+                { favorites }
+              </p>
             </div>
           )}
         </div>
