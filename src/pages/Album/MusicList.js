@@ -48,7 +48,7 @@ class MusicList extends React.Component {
         <ul className="music-list">
           {musicList.map((music, index) => (
             index !== 0 && (
-              <li key={ index }>
+              <li key={ music.trackId }>
                 <MusicCard
                   music={ music }
                   isFavorite={

@@ -10,8 +10,8 @@ class FavoritesList extends React.Component {
     let content;
 
     if (favorites.length > 0) {
-      content = favorites.map((music, index) => (
-        <li key={ index }>
+      content = favorites.map((music) => (
+        <li key={ music.trackId }>
           <MusicCard
             music={ music }
             isFavorite
