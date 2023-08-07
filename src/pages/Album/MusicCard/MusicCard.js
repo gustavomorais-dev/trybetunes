@@ -16,13 +16,12 @@ class MusicCard extends React.Component {
   }
 
   onChange({ target }) {
-    const { music, fetchFavorites } = this.props;
+    const { music, fetchFavorites, fetchMusics } = this.props;
     const value = target.checked;
 
     this.setState({
       loading: true,
     });
-  
     if (value) {
       addSong(music)
         .then(() => {
@@ -46,7 +45,8 @@ class MusicCard extends React.Component {
           console.log(error);
         });
     }
-    fetchFavorites && fetchFavorites();
+    if (fetchFavorites) fetchFavorites();
+    if (fetchMusics) fetchMusics();
   }
 
   render() {
@@ -85,6 +85,13 @@ MusicCard.propTypes = {
     trackId: PropTypes.number.isRequired,
   }).isRequired,
   isFavorite: PropTypes.bool.isRequired,
+  fetchFavorites: PropTypes.func,
+  fetchMusics: PropTypes.func,
+};
+
+MusicCard.defaultProps = {
+  fetchFavorites: () => {},
+  fetchMusics: () => {},
 };
 
 export default MusicCard;

@@ -12,13 +12,14 @@ class MusicList extends React.Component {
       loading: true,
       musicList: [],
     };
+    this.fetchMusics = this.fetchMusics.bind(this);
   }
 
   componentDidMount() {
     this.fetchMusics();
   }
 
-  fetchMusics() {
+  async fetchMusics() {
     const { id, configAlbumCard } = this.props;
     getMusics(id).then((response) => {
       this.setState({
@@ -53,6 +54,7 @@ class MusicList extends React.Component {
                   isFavorite={
                     favorites.some((favorite) => favorite.trackId === music.trackId)
                   }
+                  fetchMusics={ this.fetchMusics }
                 />
               </li>
             )
