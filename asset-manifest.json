@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/youtune/static/css/main.c0427020.css",
+    "main.js": "/youtune/static/js/main.ce7d51df.js",
+    "static/media/music-bg.jpg": "/youtune/static/media/music-bg.f4931b92f08dc7233385.jpg",
+    "static/media/user.png": "/youtune/static/media/user.65a4e97357eef3c582b4.png",
+    "index.html": "/youtune/index.html",
+    "main.c0427020.css.map": "/youtune/static/css/main.c0427020.css.map",
+    "main.ce7d51df.js.map": "/youtune/static/js/main.ce7d51df.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0427020.css",
+    "static/js/main.ce7d51df.js"
+  ]
+}
