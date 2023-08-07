@@ -1,10 +1,21 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# YouTune
+
+Essa aplicação faz uso da API do iTunes.
+
+Uma aplicação capaz de reproduzir músicas das mais variadas bandas e artistas do mundo, criar uma lista de músicas favoritas do usuário e fazer uma simulação de login. As informações ficam salvas no localStorage.
+
+## Começando
+
+Para testar a aplicação localmente, clone o repositório e siga os seguintes passos:
+
+1. **Instalar Dependências:**
+
+```
+$ npm install
+```
+
+2. **Iniciar o aplicativo:**
+
+```
+$ npm start
+```
